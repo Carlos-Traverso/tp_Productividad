@@ -1,166 +1,331 @@
+/* =========================
+   VARIABLES
+========================= */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --bg-cream: #fcf8f2;
+  --card-white: #ffffff;
+  --accent-forest: #2d4a3e;
+  --accent-gold: #b88a5a;
+  --text-main: #1c1f1d;
+  --text-light: #70756f;
+
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 18px 36px rgba(0, 0, 0, 0.08);
+
+  --radius: 24px;
+
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg-cream);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+.main-bg {
   min-height: 100vh;
 }
 
-.container {
-  max-width: 420px;
-  margin: 48px auto;
-  padding: 24px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 18px;
-  box-shadow: 0 6px 32px rgba(60,60,90,0.10), 0 1.5px 6px rgba(60,60,90,0.07);
+/* =========================
+   HEADER
+========================= */
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 40px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
-.title {
-  font-size: 2.2rem;
+.header-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #2e4a3c;
-  margin-bottom: 28px;
-  text-align: center;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-forest);
 }
 
-.card {
-  background: #f7faf7;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(60,60,90,0.07);
-  padding: 28px 22px 20px 22px;
-  width: 100%;
-  margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tip {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #234b2e;
-  margin-bottom: 18px;
-  text-align: center;
-}
-
-.votes {
-  font-size: 1rem;
-  color: #4b6e57;
-  margin-bottom: 18px;
-}
-
-.buttons {
-  display: flex;
-  gap: 14px;
-}
-
-button {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-  outline: none;
-}
-
-button.vote {
-  background: #3e7c4a;
-  color: #fff;
-  box-shadow: 0 1px 4px rgba(60,60,90,0.07);
-}
-
-button.vote:hover {
-  background: #2e5c36;
-}
-
-button.next {
-  background: #e6f2ed;
-  color: #2e4a3c;
-  border: 1px solid #b7d6c6;
-}
-
-button.next:hover {
-  background: #d0e7de;
-}
-
-.best-tip-section {
-  width: 100%;
-  margin-top: 18px;
-  padding: 18px 0 0 0;
-  border-top: 1.5px solid #e0e6e3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.best-tip-section h3 {
-  color: #2e4a3c;
-  font-size: 1.15rem;
+.header-nav .active {
   font-weight: 600;
-  margin-bottom: 12px;
+  color: var(--accent-forest);
+  border-bottom: 2px solid var(--accent-gold);
+  padding-bottom: 4px;
 }
 
-.best-tip-card {
-  background: #e6f2ed;
-  border-radius: 10px;
-  padding: 16px 18px;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 1px 6px rgba(60,60,90,0.06);
+/* =========================
+   MAIN
+========================= */
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 24px;
+  text-align: center;
+}
+
+.main-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--accent-forest);
+  margin-bottom: 20px;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 35px;
+}
+
+.hero-image img {
+  width: 55%;
+  max-width: 650px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  object-fit: cover;
+  opacity: 0.95;
+  filter: saturate(0.9);
+  transition: var(--transition);
+}
+
+.hero-image img:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.main-sub {
+  max-width: 620px;
+  margin: 0 auto 70px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+
+/* =========================
+   GRID
+========================= */
+.main-grid {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto 70px;
+}
+
+/* =========================
+   TIP CARD
+========================= */
+.tip-card {
+  background: var(--card-white);
+  padding: 55px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+}
+
+.tip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.tip-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-forest);
+  line-height: 1.3;
+  margin-bottom: 18px;
+}
+
+.tip-votes {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  margin-bottom: 32px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.tip-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.vote-btn,
+.next-btn {
+  padding: 14px 24px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.vote-btn {
+  background: var(--accent-forest);
+  color: white;
+  border: none;
+}
+
+.vote-btn:hover {
+  background: #21382f;
+  transform: translateY(-2px);
+}
+
+.next-btn {
+  background: white;
+  color: var(--accent-forest);
+  border: 2px solid #ece8e2;
+}
+
+.next-btn:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BEST TIP
+========================= */
+.best-tip {
+  background: #f8f1e8;
+  padding: 32px 40px;
+  border-radius: var(--radius);
+  text-align: left;
+  border: 1px solid #eadcc8;
+  transition: var(--transition);
+}
+
+.best-tip:hover {
+  transform: translateY(-4px);
+}
+
+.best-tip-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
 }
 
 .best-tip-text {
-  color: #234b2e;
-  font-size: 1.08rem;
-  font-weight: 500;
-  margin-bottom: 8px;
-  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-forest);
+  margin-bottom: 10px;
 }
 
 .best-tip-votes {
-  color: #3e7c4a;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-light);
 }
 
 .no-votes {
-  color: #b0b0b0;
-  font-size: 1rem;
-  margin-top: 8px;
-  text-align: center;
+  color: var(--text-light);
 }
 
-@media (max-width: 600px) {
-  .container {
-    max-width: 98vw;
-    padding: 10px;
+/* =========================
+   SECONDARY TIPS
+========================= */
+.secondary-tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.secondary-tip-card {
+  background: var(--card-white);
+  padding: 34px;
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.secondary-tip-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.secondary-tip-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #f8f1e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 22px;
+}
+
+.secondary-tip-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--accent-forest);
+  font-weight: 500;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.secondary-tip-tag {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(184, 138, 90, 0.12);
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
   }
-  .card, .best-tip-card {
-    padding: 16px 8px;
+
+  .hero-image img {
+    width: 100%;
   }
-  .title {
+
+  .tip-card {
+    padding: 35px;
+  }
+
+  .tip-title {
     font-size: 1.5rem;
+  }
+
+  .header {
+    padding: 20px;
   }
 }
