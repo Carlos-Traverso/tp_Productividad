@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "./index.css";
+import { useState } from "react";
 
 const initialTips = [
   "Planificá tu día la noche anterior",
